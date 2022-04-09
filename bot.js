@@ -21,6 +21,14 @@ client.on('connected', onConnectedHandler);
 // Connect to Twitch:
 client.connect();
 
+// Storage of our chat components
+var movement_dict = {
+  "!forward": 0,
+  "!left": 0,
+  "!right": 0,
+  "!back": 0
+  }  
+
 // Called every time a message comes in
 function onMessageHandler (target, context, msg, self) {
   if (self) { return; } // Ignore messages from the bot
@@ -29,34 +37,36 @@ function onMessageHandler (target, context, msg, self) {
   const commandName = msg.trim();
 
   // If the command is known, let's execute it
-  if (commandName === '!dice') {
-    const num = rollDice();
-    client.say(target, `You rolled a ${num}`);
-    console.log(`* Executed ${commandName} command`);
-  } else {
-    console.log(`* Unknown command ${commandName}`);
-  }
-
-  if (commandName == "!forward") 
+  switch(commandName) 
   {
-
-  }
-
-  if (commandName == "!left")
-  {
-
-  }
-
-  if (commandName == "!right")
-  {
-
-  }
-
-  if (commandName == "!back")
-  {
-    
+    case "!dice": 
+      const num = rollDice();
+      client.say(target, `You rolled a ${num}`);
+      console.log(`* Executed ${commandName} command`);
+      break;
+    case "!forward":
+      movement_dict[commandName] += 1
+      console.log(`* Executed ${commandName} command`);
+      break;
+    case "!left":
+      movement_dict[commandName] += 1
+      console.log(`* Executed ${commandName} command`);
+      break;
+    case "!right":
+      movement_dict[commandName] += 1
+      console.log(`* Executed ${commandName} command`);
+      break;
+    case "!back":
+      movement_dict[commandName] += 1
+      console.log(`* Executed ${commandName} command`);
+      break;
+    default:
+      console.log(`* Unknown command ${commandName}`);
+      break;
   }
 }
+
+  
 
 function moveForward ()
 {
