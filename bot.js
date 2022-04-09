@@ -36,6 +36,46 @@ function onMessageHandler (target, context, msg, self) {
   } else {
     console.log(`* Unknown command ${commandName}`);
   }
+
+  if (commandName == "!forward") 
+  {
+
+  }
+
+  if (commandName == "!left")
+  {
+
+  }
+
+  if (commandName == "!right")
+  {
+
+  }
+
+  if (commandName == "!back")
+  {
+    
+  }
+}
+
+function moveForward ()
+{
+  // Will move our vehicle forward
+}
+
+function turnLeft ()
+{
+  // Will move our vehicle left
+}
+
+function turnRight ()
+{
+  // Will move our vehicle right
+}
+
+function moveBack()
+{
+  // Will move our vehicle backwards
 }
 
 // Function called when the "dice" command is issued
